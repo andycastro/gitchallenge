@@ -34,6 +34,17 @@ Este projeto foi desenvolvido com as seguintes tecnologias:
 - Master -> Produção
 - Develop -> Features (desenvolvimento por feature)
 
+## Step-by-step - Checklist pré-desenvolvimento
+
+- Verificar endpoints
+- Iniciar com o Create React App template Typescript
+- Limpar a aplicação (boilerplate)
+- Preparar a estrutura de diretórios iniciais + src + styles + common css + grids + services + components + pages
+- Criar repositório + Configuração Git + Push inicial
+- Instalar dependências iniciais + react-router-dom + axios + loading + debounce + styled-components
+- Configurar rotas
+- Início do desenvolvimento…
+
 ## Contatos
 
 contato@andycastro.com.br
