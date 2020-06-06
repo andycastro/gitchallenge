@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import UserData from "../../services/user.service";
 import { Container } from "../../styles/common.style";
 import Header from "../../Components/Header/Header";
 import Search from "../../Components/Search/Search";
-import api from "../../services/api";
-import { FireworkSpinner } from "react-spinners-kit";
+import Loading from "../../Components/Loading/Loading";
 import { Ul } from "./main.style";
 
 const Main = () => {
@@ -12,7 +13,7 @@ const Main = () => {
   const [searchResult, setSearchResult] = useState<any>([]);
 
   useEffect(() => {
-    api.get("/public_members").then((response) => {
+    UserData.getUserData().then((response) => {
       setData(response.data);
       setLoading(false);
     });
@@ -40,20 +41,21 @@ const Main = () => {
             {listData.map((list: any) => {
               return (
                 <li key={list.id}>
-                  <img src={list.avatar_url} width="200px" alt={list.avatar} />
-                  <h2>{list.login}</h2>
+                  <Link to={`details/${list.login}`}>
+                    <img
+                      src={list.avatar_url}
+                      width="200px"
+                      alt={list.avatar}
+                    />
+                    <h2>{list.login}</h2>
+                  </Link>
                 </li>
               );
             })}
           </Ul>
         </Container>
       )}
-      {loading && (
-        <>
-          <FireworkSpinner size={55} color={"#444"} />
-          <p>loading...</p>
-        </>
-      )}
+      {loading && <Loading />}
     </>
   );
 };
