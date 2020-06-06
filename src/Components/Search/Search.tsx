@@ -1,15 +1,15 @@
 import React from "react";
-import { DebounceInput } from "react-debounce-input";
+import { SearchInput } from "./search.style";
 
 const Search = (props: any) => {
   const { handleSearch } = props;
   return (
     <>
       <form>
-        <DebounceInput
+        <SearchInput
           debounceTimeout={700}
           type="text"
-          placeholder="What do you looking for?"
+          placeholder="Faça sua busca aqui!"
           onChange={handleSearch}
         />
       </form>
